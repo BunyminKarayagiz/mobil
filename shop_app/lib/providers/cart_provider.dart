@@ -4,9 +4,10 @@ import '../models/product_model.dart';
 class CartProvider extends ChangeNotifier {
   List<Product> items = [];
 
+  List<Product> get cartItems => items;
+
   void addToCart(Product product) {
-    var existing =
-        items.where((p) => p.id == product.id).toList();
+    var existing = items.where((p) => p.id == product.id).toList();
 
     if (existing.isNotEmpty) {
       existing.first.quantity++;

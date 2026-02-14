@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../models/product_model.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
+import '../providers/auth_provider.dart';
+import 'login_page.dart';
 
 class DetailPage extends StatelessWidget {
   final Product product;
@@ -36,16 +38,24 @@ class DetailPage extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            Provider.of<CartProvider>(context, listen: false)
-                .addToCart(product);
 
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Ürün sepete eklendi 🛒"),
-                backgroundColor: Colors.green,
-              ),
-            );
-          },
+  final auth = Provider.of<AuthProvider>(context, listen: false);
+
+  if (!auth.isLoggedIn) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => LoginPage()),
+    );
+    return;
+  }
+
+  Provider.of<CartProvider>(context, listen: false)
+      .addToCart(product);
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text("Sepete eklendi")),
+  );
+},
           child: Text(
             "Sepete Ekle - \$${product.price}",
             style: TextStyle(fontSize: 16, color: Colors.white),

@@ -3,11 +3,25 @@ import 'package:http/http.dart' as http;
 import '../models/product_model.dart';
 
 class ApiService {
-  static Future<List<Product>> fetchProducts() async {
-    final url = Uri.parse("https://fakestoreapi.com/products");
-    final response = await http.get(url);
 
-    final List data = jsonDecode(response.body);
-    return data.map((e) => Product.fromJson(e)).toList();
+  static Future<List<Product>> fetchProducts() async {
+    final res = await http.get(Uri.parse('https://fakestoreapi.com/products'));
+    final data = jsonDecode(res.body);
+    return data.map<Product>((e) => Product.fromJson(e)).toList();
+  }
+
+  // 🔥 kategoriler
+  static Future<List<String>> fetchCategories() async {
+    final res = await http.get(Uri.parse('https://fakestoreapi.com/products/categories'));
+    final data = jsonDecode(res.body);
+    return List<String>.from(data);
+  }
+
+  // 🔥 kategoriye göre ürün
+  static Future<List<Product>> fetchByCategory(String cat) async {
+    final res = await http.get(
+        Uri.parse('https://fakestoreapi.com/products/category/$cat'));
+    final data = jsonDecode(res.body);
+    return data.map<Product>((e) => Product.fromJson(e)).toList();
   }
 }
