@@ -33,7 +33,7 @@ class _CategoryPageState extends State<CategoryPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.category.toUpperCase()),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
       ),
       body: loading
           ? Center(child: CircularProgressIndicator())

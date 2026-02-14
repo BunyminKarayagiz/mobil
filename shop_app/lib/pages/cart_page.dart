@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
+import 'payment_page.dart';
 
 class CartPage extends StatelessWidget {
   @override
@@ -121,30 +122,24 @@ class CartPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 15),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12)),
-                          ),
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text("Satın alma yakında 😎"),
-                              ),
-                            );
-                          },
-                          child: Text("Satın Al",
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 16)),
-                        ),
-                      )
+                      SizedBox(height: 20),
+
+ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.black,
+    minimumSize: Size(double.infinity, 55),
+  ),
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => PaymentPage()),
+    );
+  },
+  child: Text("Ödeme Yap"),
+),        
                     ],
                   ),
+                  
                 )
               ],
             ),
