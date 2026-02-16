@@ -24,7 +24,7 @@ class PaymentPage extends StatelessWidget {
         child: Column(
           children: [
 
-            /// 💳 kart görseli
+            ///  kart görseli
             Container(
               width: double.infinity,
               padding: EdgeInsets.all(20),
@@ -87,7 +87,7 @@ class PaymentPage extends StatelessWidget {
 
             SizedBox(height: 30),
 
-            /// 💰 toplam fiyat
+            ///  toplam fiyat
             Text("Toplam: \$${cart.totalPrice.toStringAsFixed(2)}",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
 

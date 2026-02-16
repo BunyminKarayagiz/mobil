@@ -39,7 +39,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Color(0xfff5f5f7),
 
-      /// 🔝 APPBAR
       appBar: AppBar(
         backgroundColor: Color(0xfff5f5f7),
         elevation: 0,
@@ -50,7 +49,6 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 22)),
         actions: [
 
-          /// 🛒 CART
           Consumer<CartProvider>(
             builder: (context, cart, child) {
               return Stack(
@@ -82,7 +80,7 @@ class _HomePageState extends State<HomePage> {
             },
           ),
 
-          /// 👤 PROFILE
+          ///  PROFILE
           IconButton(
             icon: Icon(Icons.person_outline, color: Colors.black),
             onPressed: () {
@@ -103,7 +101,6 @@ class _HomePageState extends State<HomePage> {
           : ListView(
               children: [
 
-                /// 🔥 BIG HEADER
                 Padding(
                   padding: EdgeInsets.all(20),
                   child: Text(
@@ -115,7 +112,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
 
-                /// 🔥 CATEGORY SCROLL
                 Container(
                   height: 50,
                   child: ListView.builder(
@@ -155,7 +151,7 @@ class _HomePageState extends State<HomePage> {
 
                 SizedBox(height: 25),
 
-                /// 🔥 PRODUCT GRID
+
                 GridView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),

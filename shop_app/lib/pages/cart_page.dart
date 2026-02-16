@@ -16,7 +16,7 @@ class CartPage extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white),
       ),
 
-      // 🛒 SEPET BOŞSA
+      //  SEPET BOŞSA
       body: cart.items.isEmpty
           ? Center(
               child: Text(
@@ -25,7 +25,7 @@ class CartPage extends StatelessWidget {
               ),
             )
 
-          // 🛒 DOLUYSA
+          //  DOLUYSA
           : Column(
               children: [
                 Expanded(
@@ -66,7 +66,7 @@ class CartPage extends StatelessWidget {
                               ),
                             ),
 
-                            // ➕➖ adet kontrol
+                            // adet kontrol
                             Row(
                               children: [
                                 IconButton(
@@ -94,7 +94,7 @@ class CartPage extends StatelessWidget {
                   ),
                 ),
 
-                // 🔥 ALT TOPLAM VE CHECKOUT
+                // ALT TOPLAM VE CHECKOUT
                 Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(

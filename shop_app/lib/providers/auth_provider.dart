@@ -9,7 +9,7 @@ class AuthProvider extends ChangeNotifier {
     loadUser();
   }
 
-  /// 🔥 app açılınca user oku
+
   Future<void> loadUser() async {
     final prefs = await SharedPreferences.getInstance();
     userEmail = prefs.getString("userEmail");
@@ -17,7 +17,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// 🔥 login
+
   Future<void> login(String email, String password) async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -27,7 +27,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// 🔥 logout
+
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove("userEmail");

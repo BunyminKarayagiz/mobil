@@ -10,14 +10,14 @@ class ApiService {
     return data.map<Product>((e) => Product.fromJson(e)).toList();
   }
 
-  // 🔥 kategoriler
+
   static Future<List<String>> fetchCategories() async {
     final res = await http.get(Uri.parse('https://fakestoreapi.com/products/categories'));
     final data = jsonDecode(res.body);
     return List<String>.from(data);
   }
 
-  // 🔥 kategoriye göre ürün
+
   static Future<List<Product>> fetchByCategory(String cat) async {
     final res = await http.get(
         Uri.parse('https://fakestoreapi.com/products/category/$cat'));

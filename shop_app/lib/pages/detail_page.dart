@@ -14,7 +14,6 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[100],
 
-      // 🔥 APPBAR FIX
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
@@ -25,7 +24,6 @@ class DetailPage extends StatelessWidget {
         ),
       ),
 
-      // 🔥 ADD TO CART SABİT ALTTA
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(15),
         color: Colors.white,
@@ -63,7 +61,6 @@ class DetailPage extends StatelessWidget {
         ),
       ),
 
-      // 🔥 BODY
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(20),
